@@ -10,6 +10,18 @@ blueprints = [
     ("/Game/Blueprints/Enemy/BP_EnemyBase",            "Character"),
 ]
 
+# Widget Blueprint'leri ayrıca oluştur
+widget_factory = unreal.WidgetBlueprintFactory()
+widgets = [
+    ("/Game/Blueprints/UI/WBP_ClassSelection", "Sınıf Seçim Ekranı"),
+    ("/Game/Blueprints/UI/WBP_HUD", "Oyun HUD"),
+]
+for path, label in widgets:
+    pkg, name = path.rsplit("/", 1)
+    w = asset_tools.create_asset(name, pkg, None, widget_factory)
+    if w:
+        print(f"Widget oluşturuldu: {path}")
+
 for asset_path, parent_class_name in blueprints:
     package_path, asset_name = asset_path.rsplit("/", 1)
     parent_class = unreal.load_class(None, f"/Script/Engine.{parent_class_name}")
