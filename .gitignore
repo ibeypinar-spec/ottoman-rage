@@ -15,10 +15,6 @@ Saved/
 CrashReportClient/
 ShaderCache/
 
-# Compiled assets
-*.uasset
-*.umap
-
 # Keep these
 !Content/
 !Config/
